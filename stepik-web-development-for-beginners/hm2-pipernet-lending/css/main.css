@@ -247,9 +247,13 @@ div.container>div.team {
     display: flex;
     justify-content: center;
 }
+#TheProblem, #TheTeam, #PledPiperCoin {
+    position: relative;
+    top:-84px;
+}
 
 
 
-
+ 
 
 
