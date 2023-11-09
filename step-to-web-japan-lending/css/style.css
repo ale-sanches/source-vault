@@ -40,6 +40,8 @@ body {
     line-height: 24px;
     font-weight: normal;
     color: #102746;
+    margin: 0;
+    padding: 0;
 }
 
 img {
@@ -83,7 +85,8 @@ figure {
 figcaption {
     margin: 0;
 }
-h1,h2,h3,h4,p{
+
+h1, h2, h3, h4, p {
     margin: 0;
     padding: 0;
 }
@@ -367,10 +370,11 @@ h1,h2,h3,h4,p{
 /*places style end*/
 
 /*tours style start*/
-.tours{
+.tours {
     margin-bottom: 139px;
 }
-.tours__tour{
+
+.tours__tour {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 0 108px;
@@ -378,34 +382,123 @@ h1,h2,h3,h4,p{
     margin-bottom: 77px;
     margin-top: 0;
 }
-.tour__info{
+
+.tour__info {
     margin-left: 47px;
 }
-.tour_title{
+
+.tour_title {
     font-size: 30px;
     font-weight: 500;
     line-height: 40px;
     margin-bottom: 85px;
     max-width: 357px;
 }
-.tour__description{
+
+.tour__description {
     font-size: 16px;
     font-weight: 400;
     line-height: 24px;
     margin-bottom: 58px;
     max-width: 519px;
 }
-.tour__link-more{
+
+.tour__link-more {
     display: inline-block;
     color: #006DFE;
     text-decoration: none;
     padding-right: 59px;
     background: url("/images/arrow.jpg") no-repeat right center;
 }
+
 .tour__link-more:hover, .tour__link-more:focus {
     opacity: 65%;
 }
 
 /*tours style end*/
+
+/*top places style start*/
+
+.top-places {
+    margin-bottom: 86px;
+}
+
+.top-places__title {
+    margin-bottom: 54px;
+}
+
+.top-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 57px;
+}
+
+.top-card__pic {
+    position: relative;
+    margin-bottom: 45px;
+}
+.top__card{
+    display: flex;
+    flex-direction: column;
+}
+.top-card__stats {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    position: absolute;
+    top: 322px;
+    left: 0;
+    width: 100%;
+    background: rgba(21, 24, 36, 0.6);
+    padding: 16px 25px;
+}
+
+.top-card__title {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    color: #fff;
+    margin: 0 auto 0 0 ;
+}
+.top-card__likes{
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #fff;
+    padding-right: 20px;
+    background: url("../images/likes.svg") no-repeat right;
+    margin-right: 14px;
+}
+
+.top-card__comments{
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #fff;
+    padding-right: 23px;
+    background: url("../images/comments.svg") no-repeat right;
+}
+.top-card__description{
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 43px;
+    width: 386px;
+}
+.top-card__more{
+    text-transform: uppercase;
+    padding: 12px 19px;
+    color: white;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    background: #1B7DFF;
+    border: none;
+    text-decoration: none;
+}
+
+
+
+/*top places style end*/
 
 
