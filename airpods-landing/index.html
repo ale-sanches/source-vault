@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>AirPodsMax</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/reset.css">
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="icon" type="image/x-icon" href="img/logo.svg">
 </head>
 <body>
 <header class="header">
@@ -43,11 +44,11 @@
                     class="title--s">S</span><span class="title--m">M</span><span class="title--ax">AX</span>
             </h1>
             <div class="header__content-images">
-                <img src="img/blue.png" alt="blue" class="header-img">
-                <!--                <img src="img/green.png" alt="green" class="header-img">-->
-                <!--                <img src="img/red.png" alt="red" class="header-img">-->
-                <!--                <img src="img/gray.png" alt="gray" class="header-img">-->
-                <!--                <img src="img/white.png" alt="white" class="header-img">-->
+                <img src="img/blue.png" alt="blue" class="content-item content-item__active color--blue">
+                <img src="img/green.png" alt="green" class="content-item color--green">
+                <img src="img/red.png" alt="red" class="content-item color--red">
+                <img src="img/gray.png" alt="gray" class="content-item color--black">
+                <img src="img/white.png" alt="white" class="content-item color--white">
             </div>
         </div>
     </div>
@@ -59,11 +60,16 @@
             <p class="choose-color__text">The perfect balance between the purityof hi‑fi and the magic of AirPods. The
                 ultimate personal audio experience.</p>
             <div class="choose-color__list">
-                <button class="choose-color__btn"><img src="img/btn-black.png" alt="black"></button>
-                <!--                <button class="choose-color__btn"><img src="img/btn-blue.png" alt="blue"></button>-->
-                <button class="choose-color__btn"><img src="img/btn-green.png" alt="green"></button>
-                <button class="choose-color__btn"><img src="img/btn-white.png" alt="white"></button>
-                <button class="choose-color__btn"><img src="img/btn-red.png" alt="red"></button>
+                <button class="choose-color__btn" data-button="color--black"><img src="img/btn-black.png" alt="black">
+                </button>
+                <button class="choose-color__btn choose-color__btn--active" data-button="color--blue"><img
+                        src="img/btn-blue.png" alt="blue"></button>
+                <button class="choose-color__btn" data-button="color--green"><img src="img/btn-green.png" alt="green">
+                </button>
+                <button class="choose-color__btn" data-button="color--white"><img src="img/btn-white.png" alt="white">
+                </button>
+                <button class="choose-color__btn" data-button="color--red"><img src="img/btn-red.png" alt="red">
+                </button>
             </div>
         </div>
     </section>
@@ -84,11 +90,12 @@
                     <p class="composition__desc-text-item">The telescoping arms expand and stay in any position you
                         want, allowing you to maintain fit and isolation.</p>
                 </div>
-                <img src="img/composition-img-blue.jpg" alt="blue" class="">
-                <!--<img src="img/composition-img-black.jpg" alt="black" class"">-->
-                <!--<img src="img/composition-img-red.jpg" alt="red" class"">-->
-                <!--<img src="img/composition-img-green.jpg" alt="green" class"">-->
-                <!--<img src="img/composition-img-white.jpg" alt="white" class"">-->
+                <img src="img/composition-img-blue.jpg" alt="blue"
+                     class="content-item content-item__active color--blue">
+                <img src="img/composition-img-black.jpg" alt="black" class="content-item color--black">
+                <img src="img/composition-img-red.jpg" alt="red" class="content-item color--red">
+                <img src="img/composition-img-green.jpg" alt="green" class="content-item color--green">
+                <img src="img/composition-img-white.jpg" alt="white" class="content-item color--white">
             </div>
         </div>
     </section>
@@ -100,11 +107,11 @@
                 When stored in the sleek and lightweight Smart Case , AirPods Max enter a low-power state to save
                 energy.
             </p>
-            <img src="img/case-blue.jpg" alt="blue case">
-            <!--<img src="img/case-red.jpg" alt="red case">-->
-            <!--<img src="img/case-black.jpg" alt="black case">-->
-            <!--<img src="img/case-green.jpg" alt="green case">-->
-            <!--<img src="img/case-white.jpg" alt="white case">-->
+            <img src="img/case-blue.jpg" alt="blue case" class="content-item color--blue content-item__active">
+            <img src="img/case-red.jpg" alt="red case" class="content-item color--red">
+            <img src="img/case-black.jpg" alt="black case" class="content-item color--black">
+            <img src="img/case-green.jpg" alt="green case" class="content-item color--green">
+            <img src="img/case-white.jpg" alt="white case" class="content-item color--white">
 
             <h2 class="section__title energy__title">Stayin' alive, stayin' alive.</h2>
             <h2 class="energy__digit">20</h2>
@@ -117,14 +124,16 @@
         <div class="container">
             <div class="audio__inner">
                 <div class="audio__box">
-                    <p class="audio__text">Custom Spatial Audio with dynamic head tracking provides a surround sound experience worthy of a
+                    <p class="audio__text">Custom Spatial Audio with dynamic head tracking provides a surround sound
+                        experience worthy of a
                         movie theater.
                     </p>
                     <p class="audio__text">Through built-in gyroscopes and accelerometers, AirPods Max and your iPhone,
                         iPad, Mac or Apple TV detect the slightest head movements and keep the sound steady on your
                         device.
                     </p>
-                    <p class="audio__text">And with Apple Music, custom Spatial Audio with dynamic head tracking creates a unique
+                    <p class="audio__text">And with Apple Music, custom Spatial Audio with dynamic head tracking creates
+                        a unique
                         three-dimensional listening experience.
                     </p>
                     <button class="btn">
@@ -134,23 +143,23 @@
             </div>
         </div>
     </section>
-<footer class="footer">
-<div class="container">
-    <a href="#" class="footer__link">Find a retailer near you</a>
-    <p class="footer__text">Or call 800 207 758</p>
-    <a href="#" class="logo">
-        <img src="img/logo-white.svg" alt="logo">
-    </a>
+    <footer class="footer">
+        <div class="container">
+            <a href="#" class="footer__link">Find a retailer near you</a>
+            <p class="footer__text">Or call 800 207 758</p>
+            <a href="#" class="logo">
+                <img src="img/logo-white.svg" alt="logo">
+            </a>
 
-    <ul class="footer__list">
-        <li class="footer__item">Copyright © 2023 Apple Inc. </li>
-        <li class="footer__item">All rights reserved.</li>
-        <li class="footer__item"><a href="">Legal Notices</a></li>
-        <li class="footer__item"><a href="">Site Map</a></li>
-        <li class="footer__item"><a href="">Privacy Policy</a></li>
-    </ul>
-</div>
-</footer>
+            <ul class="footer__list">
+                <li class="footer__item">Copyright © 2023 Apple Inc.</li>
+                <li class="footer__item">All rights reserved.</li>
+                <li class="footer__item"><a href="">Legal Notices</a></li>
+                <li class="footer__item"><a href="">Site Map</a></li>
+                <li class="footer__item"><a href="">Privacy Policy</a></li>
+            </ul>
+        </div>
+    </footer>
 
 </main>
 
