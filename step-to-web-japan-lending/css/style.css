@@ -52,11 +52,14 @@ img {
 .wrapper {
     max-width: 1060px;
     margin: 0 auto;
+    padding: 0 15px;
 }
 
 .wrapper-full {
     max-width: 1262px;
     margin: 0 auto;
+    padding: 0 15px;
+
 }
 
 .section-title {
@@ -139,6 +142,34 @@ h1, h2, h3, h4, p {
 
 .header_link:hover, .header_link:active, .header_link:focus {
     opacity: .75;
+}
+
+.header__burger {
+    display: none;
+    width: 40px;
+    height: 28px;
+    position: relative;
+}
+
+.burger__line {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #FFFFFF;
+    position: absolute;
+    left: 0;
+}
+
+.burger__line-first {
+    top: 0;
+}
+
+.burger__line-second {
+    top: 50%;
+}
+
+.burger__line-third {
+    bottom: 0;
 }
 
 /*header style end*/
@@ -577,7 +608,8 @@ h1, h2, h3, h4, p {
     font-weight: 500;
     line-height: 24px;
 }
-.footer__menu-item{
+
+.footer__menu-item {
     list-style: none;
 }
 
@@ -588,13 +620,82 @@ h1, h2, h3, h4, p {
     font-weight: 400;
     text-decoration: none;
 }
-.footer__menu-link:hover, .footer__menu-link:focus, .footer__menu-link:active{
+
+.footer__menu-link:hover, .footer__menu-link:focus, .footer__menu-link:active {
     opacity: 0.75;
 }
 
 
 /*footer style end*/
 
+/* media start*/
+@media screen and (max-width: 767px) {
+    .header__burger {
+        display: block;
+    }
+
+    .header_nav {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: #000;
+        /*backdrop-filter: blur(30px);*/
+        /*text-shadow: 1px 1px 1px #000;*/
+        z-index: 10;
+        padding: 75px;
+        transition: .3s all linear;
+        transform: translateX(100%);
+    }
+
+    .header_nav-active {
+        transform: translateX(0);
+        transition: .3s all linear;
+    }
+
+    .header_item {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .header_item:last-child {
+        margin-bottom: 0;
+    }
+
+    .header__nav-close {
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        z-index: 11;
+    }
+
+    .header__nav-close-line {
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: #FFFFFF;
+        position: absolute;
+        top: 50%;
+    }
+
+    .header__nav-close-line:first-child {
+        transform: translateY(-50%) rotate(45deg);
+    }
+
+    .header__nav-close-line:last-child {
+        transform: translateY(-50%) rotate(-45deg);
+    }
+
+    .header_link {
+        font-size: 45px;
+        line-height: 50px;
+    }
+}
+
+/* media end*/
 
 
 
