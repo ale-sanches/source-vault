@@ -97,6 +97,17 @@ body {
   margin-right: 2rem;
   font-size: 2.4rem;
 }
+.entered-country {
+  border: none;
+  padding: 2rem 5rem;
+  border-radius: 0.7rem;
+  margin: 20px;
+  width: 42rem;
+}
+input:focus {
+  box-shadow: 0 0 0 4px rgba(255, 89, 0, 0.5);
+  outline: none;
+}
 
 .btn-country {
   border: none;
@@ -124,4 +135,7 @@ body {
   margin: 2rem;
   border: 3rem solid white;
   box-shadow: 0 2rem 5rem 1rem rgba(0, 0, 0, 0.1);
+}
+.hidden {
+  display: none;
 }

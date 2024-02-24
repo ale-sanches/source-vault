@@ -1,7 +1,9 @@
 "use strict";
-
 const btn = document.querySelector(".btn-country");
+const btnAgain = document.querySelector(".again");
 const countriesContainer = document.querySelector(".countries");
+const field = document.querySelector("input");
+const heading = document.querySelector(".heading");
 
 function renderCards(data, className = "") {
   const html = `
@@ -23,11 +25,13 @@ function renderCards(data, className = "") {
 
   countriesContainer.insertAdjacentHTML("beforeend", html);
 }
+
 function renderError(message) {
   countriesContainer.insertAdjacentText("beforeend", message);
 }
+
 function getCountryData(country) {
-  function getJSON(url, errorMessage = "Что-то пошло не такю.") {
+  function getJSON(url, errorMsg) {
     return fetch(url).then(function (response) {
       if (!response.ok) {
         throw new Error(`Страна не найдена (${response.status})`);
@@ -35,21 +39,23 @@ function getCountryData(country) {
       return response.json();
     });
   }
-  //страна 1
 
+  //страна 1
   getJSON(`https://restcountries.com/v3.1/name/${country}`, "Страна не найдена")
     .then(function (data) {
       renderCards(data[0]);
+      console.log(data[0]);
+      console.log(data[0].borders);
       let neighbour;
       if (data[0].hasOwnProperty("borders")) {
-        neighbour = data[0].borders[0];
+        let randomIndex = Math.floor(Math.random() * data[0].borders.length);
+        neighbour = data[0].borders[randomIndex];
       } else {
         throw new Error("У страны нет общих границ с другими странами :(");
       }
       //страна 2
-
       return getJSON(
-        `https://restcountries.com/v3.1/name/${neighbour}`,
+        `https://restcountries.com/v3.1/alpha/${neighbour}`,
         "Страна не найдена"
       ).then(function (data) {
         const [res] = data;
@@ -57,12 +63,42 @@ function getCountryData(country) {
       });
     })
     .catch(function (err) {
-      renderError(`Что-то пошло не так: ${err.message}`);
+      renderError(` ${err.message}`);
     })
     .finally(function () {
       countriesContainer.style.opacity = 1;
     });
 }
+
 btn.addEventListener("click", function () {
-  getCountryData("russia");
+  const errorMessage = document.createElement("p");
+  errorMessage.style.fontSize = "15px";
+  errorMessage.style.color = "red";
+  errorMessage.textContent = "Введите название страны";
+  let errorMessageAdded = false;
+
+  const input = document.querySelector(".entered-country").value.trim();
+  if (input) {
+    getCountryData(input);
+    field.classList.toggle("hidden");
+    heading.classList.add("hidden");
+    btn.classList.toggle("hidden");
+    btnAgain.classList.toggle("hidden");
+    errorMessage.textContent = "";
+    errorMessageAdded = false;
+  } else {
+    if (!errorMessageAdded) {
+      field.insertAdjacentElement("afterend", errorMessage);
+      errorMessageAdded = true;
+    }
+  }
+});
+
+btnAgain.addEventListener("click", function () {
+  countriesContainer.innerHTML = "";
+  field.classList.toggle("hidden");
+  btnAgain.classList.toggle("hidden");
+  btn.classList.toggle("hidden");
+  heading.classList.toggle("hidden");
+  field.value = "";
 });
