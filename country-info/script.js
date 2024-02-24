@@ -5,6 +5,12 @@ const countriesContainer = document.querySelector(".countries");
 const field = document.querySelector("input");
 const heading = document.querySelector(".heading");
 
+const errorMessage = document.createElement("p");
+errorMessage.style.fontSize = "15px";
+errorMessage.style.color = "red";
+errorMessage.textContent = "Введите название страны";
+let errorMessageAdded = false;
+
 function renderCards(data, className = "") {
   const html = `
       <article class = "country ${className}">
@@ -44,8 +50,6 @@ function getCountryData(country) {
   getJSON(`https://restcountries.com/v3.1/name/${country}`, "Страна не найдена")
     .then(function (data) {
       renderCards(data[0]);
-      console.log(data[0]);
-      console.log(data[0].borders);
       let neighbour;
       if (data[0].hasOwnProperty("borders")) {
         let randomIndex = Math.floor(Math.random() * data[0].borders.length);
@@ -71,12 +75,6 @@ function getCountryData(country) {
 }
 
 btn.addEventListener("click", function () {
-  const errorMessage = document.createElement("p");
-  errorMessage.style.fontSize = "15px";
-  errorMessage.style.color = "red";
-  errorMessage.textContent = "Введите название страны";
-  let errorMessageAdded = false;
-
   const input = document.querySelector(".entered-country").value.trim();
   if (input) {
     getCountryData(input);

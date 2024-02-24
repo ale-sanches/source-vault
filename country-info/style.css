@@ -27,9 +27,7 @@ body {
 }
 
 .countries {
-  /* margin-bottom: 8rem; */
   display: flex;
-
   font-size: 2rem;
   opacity: 0;
   transition: opacity 1s;
@@ -42,7 +40,6 @@ body {
   width: 30rem;
   border-radius: 0.7rem;
   margin: 0 3rem;
-  /* overflow: hidden; */
 }
 
 .neighbour::before {
@@ -103,10 +100,15 @@ body {
   border-radius: 0.7rem;
   margin: 20px;
   width: 42rem;
+  padding: 25px;
+  font-size: 20px;
 }
 input:focus {
   box-shadow: 0 0 0 4px rgba(255, 89, 0, 0.5);
   outline: none;
+}
+input::placeholder {
+  font-size: 15px;
 }
 
 .btn-country {
@@ -118,6 +120,7 @@ input:focus {
   background-color: orangered;
   cursor: pointer;
   margin: 10px;
+  font-size: 15px;
 }
 
 .images {
