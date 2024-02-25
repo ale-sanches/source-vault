@@ -215,6 +215,9 @@ h1, h2, h3, h4, p {
     font-weight: 500;
     font-size: 18px;
 }
+.form_field:hover, .form_field::after, .form_field:focus{
+    outline: none;
+}
 
 .form_field::placeholder {
     color: white;
@@ -370,7 +373,6 @@ h1, h2, h3, h4, p {
 
 .places__card:hover .places__card-pic {
     transform: scale(1.05);
-
 }
 
 .places__card-size-lg {
@@ -473,7 +475,7 @@ h1, h2, h3, h4, p {
 .top-cards {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 57px;
+    grid-gap: 52px;
 }
 
 .top-card {
@@ -629,11 +631,35 @@ h1, h2, h3, h4, p {
 /*footer style end*/
 
 /* media start*/
+@media screen and (max-width: 1312px) {
+    .places__card-pic{
+        display: block;
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+    .top-places{
+        display: flex;
+        justify-content: center;
+    }
+    .top-cards {
+        grid-template-columns: repeat(2, 300px);
+        grid-gap: 30px;
+        margin: 0 auto;
+    }
+    .top-card__stats {
+        width: 300px;
+        top: 237px;
+    }
+    .top-card__description{
+        max-width: 300px;
+    }
+}
 @media screen and (max-width: 767px) {
+
     .header__burger {
         display: block;
     }
-
     .header_nav {
         position: fixed;
         width: 100%;
@@ -641,8 +667,6 @@ h1, h2, h3, h4, p {
         top: 0;
         left: 0;
         background: #000;
-        /*backdrop-filter: blur(30px);*/
-        /*text-shadow: 1px 1px 1px #000;*/
         z-index: 10;
         padding: 75px;
         transition: .3s all linear;
@@ -693,7 +717,40 @@ h1, h2, h3, h4, p {
         font-size: 45px;
         line-height: 50px;
     }
+    /*intro*/
+    .intro {
+        min-height: 100vh;
+        width: 100%;
+        background: url("/images/intro-background.jpg") no-repeat center;
+        background-size: cover;
+        padding-top: 263px;
+        padding-bottom: 372px;
+    }
+/*top places*/
+    .top-places {
+        margin-bottom: 100px;
+    }
+
+
+    .top-card__title {
+        font-size: 15px;
+    }
+
+    .top-card__pic {
+        margin-bottom: 20px;
+    }
+
+    .top-card__description {
+        font-size: 14px;
+        line-height: 20px;
+        margin-bottom: 20px;
+    }
+
+    .top-card__more:hover, .top-card__more:focus, .top-card__more:active {
+        background: #0e66da;
+    }
 }
+
 
 /* media end*/
 
