@@ -1,95 +1,82 @@
 "use strict";
 
-///////////////////////////////////////
-
-/* 
-ЗАДАЧА: 
-Создайте игру в угадай число.
-
-
-Удачи)
-*/
-let attemptsNumber = 20;
+let score = 20;
 let highscore = 20;
-let currentAttempt;
 
-let input = document.querySelector("input");
-let message = document.querySelector(".message");
+const againButton = document.querySelector(".again");
+const question = document.querySelector(".number");
 
-let againButton = document.querySelector(".again");
-let body = document.querySelector("body");
-let attempts = document.querySelector(".score");
-
-//
-
-let question = document.querySelector(".number");
+const displayMessage = function (message) {
+  document.querySelector(".message").textContent = message;
+};
 
 function increaseAttempts() {
-  currentAttempt = --attemptsNumber;
-  attempts.textContent = currentAttempt;
+  score--;
+  if (score < 0) {
+    score = 0;
+  }
+  document.querySelector(".score").textContent = score;
 }
 
 function countRecord() {
-  let record = document.querySelector(".highscore");
-  let recordNumber = record.innerHTML;
+  let record = document.querySelector(".highscore").textContent;
+  let currentRecord = parseInt(record, 10);
 
-  highscore = Number(20 - currentAttempt);
-  record.innerHTML = highscore;
+  let attempts = 20 - score;
 
-  if (highscore < record) {
-    record.innerHTML = highscore;
+  if (attempts < currentRecord) {
+    document.querySelector(".highscore").textContent = attempts;
   }
 }
 
 function winGame(secretNumber) {
-  message.textContent = "Вы выиграли!";
+  displayMessage("Вы выиграли!");
   question.textContent = secretNumber;
-  body.style.cssText = `
-  background: #60b347;
-  `;
+  document.querySelector("body").classList.add("win-game");
 }
 function loseTheGame(secretNumber) {
-  body.style.cssText = `background: #ff0000`;
-  message.textContent = "Вы проиграли!";
+  document.querySelector("body").classList.add("lose-game");
+  displayMessage("Вы проиграли!");
 
-  attempts.textContent = "0";
+  document.querySelector(".score").textContent = "0";
   question.textContent = secretNumber;
 }
 function playTheGame() {
   let secretNumber = Math.trunc(Math.random() * 20) + 1;
   let checkButton = document.querySelector(".check");
   checkButton.addEventListener("click", () => {
-    let inputNumber = input.value;
-    if (inputNumber > 0 && inputNumber < 21) {
-      if (inputNumber < secretNumber) {
-        message.textContent = "Слишком мало!";
-        increaseAttempts();
-      }
-      if (inputNumber > secretNumber) {
-        message.textContent = "Слишком много!";
-        increaseAttempts();
-      }
-      if (inputNumber == secretNumber) {
-        winGame(secretNumber);
-        countRecord();
-      }
-      if (currentAttempt < 0) {
-        loseTheGame(secretNumber);
+    let guess = Number(document.querySelector(".guess").value);
+    if (score > 1) {
+      if (guess > 0 && guess < 21) {
+        if (guess < secretNumber) {
+          displayMessage("Слишком мало!");
+          increaseAttempts();
+        } else if (guess > secretNumber) {
+          displayMessage("Слишком много!");
+          increaseAttempts();
+        } else if (guess === secretNumber) {
+          winGame(secretNumber);
+          countRecord();
+        }
+      } else {
+        displayMessage("Введите число от 1 до 20");
       }
     } else {
-      message.textContent = "Введите число от 1 до 20";
+      loseTheGame(secretNumber);
     }
   });
-}
 
-againButton.addEventListener("click", () => {
-  attemptsNumber = 20;
-  message.textContent = "Начните угадывать...";
-  body.style.cssText = "";
-  question.textContent = "?";
-  document.querySelector(".guess").value = "";
-  playTheGame();
-});
+  againButton.addEventListener("click", () => {
+    secretNumber = Math.trunc(Math.random() * 20) + 1;
+    score = 20;
+    document.querySelector(".score").textContent = 20;
+    displayMessage("Начните угадывать...");
+    body.classList.remove("win-game");
+    body.classList.remove("lose-game");
+    question.textContent = "?";
+    document.querySelector(".guess").value = "";
+  });
+}
 
 function main() {
   playTheGame();
