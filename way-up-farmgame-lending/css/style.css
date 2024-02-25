@@ -3,6 +3,10 @@
     background-color: #FDFCEF;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Montserrat', sans-serif;
     font-size: 18px;
@@ -56,8 +60,10 @@ section {
     width: 100%;
     background-color: #FDFCEF;
     padding-top: 60px;
+    z-index: 999;
 }
-img{
+
+img {
     background: transparent;
 
 }
@@ -88,7 +94,7 @@ img{
 
 .play-button {
     display: block;
-    width: 227px;
+    width: 230px;
     border-radius: 100px;
     background: #FF6861;
     padding: 22px 70px;
@@ -127,6 +133,7 @@ img{
 .action-wrap {
     margin-left: 34px;
 }
+
 .action > img {
     transition: all .3s ease;
 }
@@ -139,6 +146,7 @@ img{
     font-size: 32px;
     color: #7e0404;
 }
+
 /*section 2 end*/
 
 /*section 3 start*/
@@ -149,29 +157,124 @@ img{
     padding: 76px 125px 75px 122px;
     align-items: center;
 }
-.practice-text{
+
+.practice-text {
     width: 475px;
     background: transparent;
 
 }
-.practice-text > p{
+
+.practice-text > p {
     margin: 24px 0;
     width: 371px;
     background: transparent;
 
 }
-.practice-text > h2{
+
+.practice-text > h2 {
     margin-bottom: 0;
     text-align: left;
     background: transparent;
 }
-.ladybird{
-    margin-left: 101px;
+
+.ladybird {
+    margin-left: 301px;
+    animation: moveAndRotate 5s linear infinite; /* Запускаем анимацию */
+    transform-origin: 1px;
 }
+
+@keyframes moveAndRotate {
+    100% {
+        transform: rotate(-360deg);
+    }
+}
+
 /*section 3 end*/
-.footer{
+
+/*footer start*/
+.footer {
     margin: 120px 0;
     font-size: 15px;
     text-align: center;
 }
-/*footer start*/
+
+/*footer end*/
+
+/* Responsive */
+
+/* Large: 992px - 1199px */
+@media (max-width: 1199px) {
+    .container {
+        max-width: 960px;
+    }
+
+    .ladybird {
+        animation: none;
+        margin-left: 101px;
+    }
+}
+
+/* Medium: 768px - 991px */
+@media (max-width: 991px) {
+    .container {
+        max-width: 720px;
+    }
+
+    .intro-wrapper {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .intro {
+        width: auto;
+    }
+
+    .intro__p {
+        width: auto;
+    }
+
+    .play-button {
+        margin: 0 auto;
+    }
+
+    .cow {
+        order: -1;
+        margin-bottom: 51px;
+    }
+
+    .practice-wrap {
+        flex-direction: column;
+        padding: 101px 37px;
+        gap: 101px;
+    }
+
+    .practice-text > h2{
+        text-align: center;
+    }
+    .practice-text > p{
+        width: 371px;
+        text-align: center;
+        margin: 24px auto;
+    }
+    .ladybird{
+        margin: 0 auto;
+        order: -1;
+        width: 287px;
+    }
+}
+
+
+/* Small: 576px - 767px */
+@media (max-width: 767px) {
+    .container {
+        max-width: 540px;
+    }
+
+}
+
+/* Extra small: 0px (320px) - 575px */
+@media (max-width: 575px) {
+    .container {
+        padding: 0 15px;
+    }
+}
