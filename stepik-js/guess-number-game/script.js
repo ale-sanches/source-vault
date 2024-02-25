@@ -71,8 +71,8 @@ function playTheGame() {
     score = 20;
     document.querySelector(".score").textContent = 20;
     displayMessage("Начните угадывать...");
-    body.classList.remove("win-game");
-    body.classList.remove("lose-game");
+    document.querySelector("body").classList.remove("win-game");
+    document.querySelector("body").classList.remove("lose-game");
     question.textContent = "?";
     document.querySelector(".guess").value = "";
   });
