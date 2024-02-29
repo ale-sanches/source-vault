@@ -1,0 +1,117 @@
+html {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
+    background: #222;
+}
+
+.card {
+    width: 90%;
+    max-width: 470px;
+    background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);;
+    color: white;
+    margin: 100px auto 0;
+    border-radius: 20px;
+    padding: 30px 45px;
+    text-align: center;
+}
+.search{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.search input{
+    border: 0;
+    outline: 0;
+    background:#efe6f6;
+    border-radius: 20px;
+    font-size: 18px;
+    padding: 10px 25px;
+    height: 60px;
+    color: #555;
+    flex: 1;
+    margin-right: 16px;
+}
+.search__button{
+    border: none;
+    cursor: pointer;
+    border: 0;
+    outline: 0;
+    background:#efe6f6;
+    width: 60px;
+    height: 60px;
+    border-radius: 50px;
+}
+.search-button__icon{
+    width: 16px;
+}
+
+.weather__image{
+    margin-top: 30px;
+    width: 150px;
+}
+.weather__temp{
+    font-size: 60px;
+    font-weight: 700;
+    margin-bottom: 0;
+}
+.weather__city-name{
+    font-size: 40px;
+    font-weight: 400;
+    margin-top: -10px;
+}
+.info__icon{
+    width: 60px;
+}
+.info{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.column{
+    display: flex;
+    align-items: center;
+    text-align: left;
+}
+.column:first-child{
+    margin-right: 10px;
+}
+.info__icon{
+    width: 55px;
+    margin-right: 10px;
+}
+.column__text-value{
+    font-size: 25px;
+    margin: auto;
+
+}
+.column__text-name{
+    margin: 0;
+    font-size: 15px;
+}
+.weather{
+    display: none;
+}
+.error{
+    text-align: left;
+    margin-left: 10px;
+    margin-top: 10px;
+    font-size: 14px;
+    display: none;
+
+}
