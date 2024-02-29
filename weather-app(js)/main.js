@@ -12,8 +12,6 @@ async function getWeatherInfo(city) {
     } else {
         let data = await response.json();
 
-        console.log(data);
-        
         document.querySelector(".weather__city-name").innerHTML = data.name;
         document.querySelector(".weather__temp").innerHTML = Math.round(data.main.temp) + " °C";
         document.querySelector(".humidity").innerHTML = data.main.humidity + " %";
