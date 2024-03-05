@@ -857,26 +857,62 @@ h1, h2, h3, h4, p {
 .places{
     margin-bottom: 60px;
 }
-    /*top places*/
-    .top-places {
-        margin-bottom: 100px;
-    }
 
+    /*tours*/
+    .tours{
+        margin-bottom: 60px;
+    }
+    .tours__tour{
+        margin-bottom: 40px;
+    }
+    .tour__info, .tour__pic{
+        grid-column: span 2;
+    }
+    .tour__pic{
+        margin-bottom: 15px;
+    }
+    .kyoto{
+        grid-row-start: -1;
+    }
+    /*top places*/
+    .top-card{
+        grid-column: span 6;
+    }
+    .top-places {
+        margin-bottom: 60px;
+    }
     .top-card__title {
         font-size: 15px;
     }
-
     .top-card__description {
         font-size: 14px;
         line-height: 20px;
         margin-bottom: 20px;
     }
-
-    .top-card__more:hover, .top-card__more:focus, .top-card__more:active {
-        background: #0e66da;
+    /*footer*/
+    .footer{
+        padding: 0;
     }
-    /*tours*/
-    
+    .footer__logo{
+        width: 100%;
+        margin-bottom: 12px;
+        margin-top: 20px;
+    }
+    .footer__nav{
+        width: 100%
+    }
+    .footer__menu{
+        padding: 0;
+        width: 50%;
+        margin-bottom: 24px;
+    }
+    .footer__menu-title{
+        font-size: 17px;
+    }
+    .footer__menu-link{
+        font-size: 13px;
+    }
+
 }
 
 @media screen and (max-width: 500px) {
