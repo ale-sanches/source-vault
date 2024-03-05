@@ -15,13 +15,22 @@
     const burgerItem = document.querySelector('.burger');
     const menu = document.querySelector('.header_nav');
     const menuCloseItem = document.querySelector('.header__nav-close');
+    const menuLinks = document.querySelectorAll(".header_link");
+
 
     burgerItem.addEventListener('click', () => {
         menu.classList.add('header_nav-active');
     })
     menuCloseItem.addEventListener('click', () => {
         menu.classList.remove('header_nav-active');
-    })
+    });
+    if(window.innerWidth < 768){
+        for(let i = 0; i < menuLinks.length; i++){
+            menuLinks[i].addEventListener("click",  () =>{
+                menu.classList.remove('header_nav-active');
+            });
+        }
+    }
 }());
 
 // scroll
